@@ -17,6 +17,9 @@ import mdn1
 from VT_AE import VT_AE as ae
 import argparse
 
+
+DATAPATH = '/home/bule/projects/MVTec_Visualizer/data/mvtec_anomaly_detection'
+
 ## Argparse declaration ##
 
 ap = argparse.ArgumentParser()
@@ -37,7 +40,7 @@ ep =0
 ssim_loss = pytorch_ssim.SSIM() # SSIM Loss
 
 #Dataset
-data = mvtech.Mvtec(args["batch_size"],product=prdt)
+data = mvtech.Mvtec(args["batch_size"],root=DATAPATH,product=prdt)
 
 # Model declaration
 model = ae(patch_size=args["patch_size"],train=True).cuda()
